@@ -12,6 +12,7 @@ export function fetchAddressRate(address, type) {
       let rate = json.outputs[type];
       let provider = json.outputs.utility_name;
       dispatch(receiveAddressRate(address, rate, provider, localAddressId));
+      dispatch(updateCurrentAddressId(localAddressId));
     });
   }
 }
@@ -29,3 +30,8 @@ export const receiveAddressRate = (address, rate, provider, localAddressId) => (
   provider,
   localAddressId
 });
+
+export const updateCurrentAddressId = (localAddressId) => ({
+  type: types.CURRENT_ADDRESS_ID,
+  localAddressId
+})

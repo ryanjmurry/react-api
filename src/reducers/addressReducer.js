@@ -1,7 +1,7 @@
 import constants from './../constants';
 const { initialState, types } = constants;
 
-const addressReducer = ( state = initialState, action ) => {
+const addressReducer = ( state = initialState.objectList, action ) => {
   let newAddressByIdEntry;
   let newAddressByIdStateSlice;
   switch(action.type) {

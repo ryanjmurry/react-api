@@ -4,9 +4,8 @@ import currentAddressReducer from './currentAddressReducer';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-    addressReducer: addressReducer,
-    currentAddressReducer: currentAddressReducer
-  }
-)
+    currentAddressId: currentAddressReducer,
+    objectList: addressReducer
+  });
 
 export default rootReducer

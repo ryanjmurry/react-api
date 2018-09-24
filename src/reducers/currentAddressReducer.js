@@ -1,7 +1,7 @@
 import constants from '../constants';
 const { types, initialState} = constants;
 
-export const currentAddressReducer = (state = initialState, action) =>{
+const currentAddressReducer = (state = initialState.currentAddressId, action) =>{
   switch(action.type){
     case types.CURRENT_ADDRESS_ID:
     return action.localAddressId;
@@ -9,3 +9,5 @@ export const currentAddressReducer = (state = initialState, action) =>{
     return state
   }
 }
+
+export default currentAddressReducer;

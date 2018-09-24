@@ -1,5 +1,7 @@
 import constants from "./../../src/constants";
+import rootReducer from './../../src/reducers';
 import addressReducer from './../../src/reducers/addressReducer';
+import currentAddressReducer from './../../src/reducers/currentAddressReducer';
 import { createStore } from 'redux';
 import * as actions from './../../src/actions';
 
@@ -12,11 +14,11 @@ const testState = {
 }
 describe('API App', () => {
   const { initialState, types } = constants;
-  const store = createStore(addressReducer, initialState);
+  const store = createStore(rootReducer, initialState);
 
   describe('addressReducer', () => {
     it('Should accept and return initial state.', () => {
-      expect(addressReducer(initialState, { type: null })).toEqual(initialState);
+      expect(addressReducer(initialState.objectList, { type: null })).toEqual(initialState.objectList);
     })
 
     it('Should update state when API data is being requested', () => {
@@ -26,7 +28,7 @@ describe('API App', () => {
         address: action.address,
         localAddressId: action.localAddressId
       };
-      expect(addressReducer(initialState, action)[action.localAddressId]).toEqual(newStateEntry);
+      expect(addressReducer(initialState.objectList, action)[action.localAddressId]).toEqual(newStateEntry);
       console.log(action.localAddressId)
     })
 
