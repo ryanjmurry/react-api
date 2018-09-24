@@ -29,7 +29,6 @@ describe('API App', () => {
         localAddressId: action.localAddressId
       };
       expect(addressReducer(initialState.objectList, action)[action.localAddressId]).toEqual(newStateEntry);
-      console.log(action.localAddressId)
     })
 
     it('Should update state on receive address rate', () =>{
